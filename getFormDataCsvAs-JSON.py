@@ -55,6 +55,9 @@ def get_csv_json(request):
             response1 = requests.get(fData_url, headers=headers)
             csvData = sio(response1.text)
             record = pd.read_csv(csvData)
+            # comment or uncomment the next 2 lines below to remove/replace "null" values.
+            null_fill = "not provided"
+            record = record.fillna(null_fill) # fills null values in the dataFrame with null_fill value
             jsonData = record.to_json(orient='records')
             jsonObject = json.loads(jsonData)
             prettyJson = json.dumps(jsonObject)
