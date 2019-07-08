@@ -17,8 +17,19 @@ def get_csv_json(request):
 	
     }
     
+    In your requirements.txt for the function you will need:
+    
+    requests>=2.22.0
+    pandas>=0.24.2
+    
+    The function to call is: get_csv_json
+    
     It makes the call to the Adobe Sign API V6 using the python "requests" module to get the form data as CSV.
     It then converts the csv formatted string to JSON using the pandas and JSON libraries and returns it.
+    Be aware that if you pass a V5 agreement ID you will get back the data but if the response data contains an agreement ID 
+    it will be the V6 ID since these are different from the IDs returned in V5.  The agreement will be correct, but the 
+    agreement ID will be the newer shorter agreement ID from V6.
+    
     This was initially done for use in Microsoft Flow, but it could be used anywhere that can ingest the form data as JSON.
     """
     request_json = request.get_json()
