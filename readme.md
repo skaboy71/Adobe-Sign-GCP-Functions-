@@ -16,8 +16,10 @@ Set the "Function to execute" to "get_csv_json".
 
 In the requirements.txt paste the below:
 
+```
 requests>=2.22.0
 pandas>=0.24.2
+```
 
 ##### Deploy the function
 
