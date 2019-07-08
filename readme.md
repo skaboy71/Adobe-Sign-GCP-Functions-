@@ -4,6 +4,10 @@ Adobe Sign returns "form data" as a csv formatted string.  This is really a prob
 
 Soooo since I'm a huge fan of python and open source, I wrote this GCP Function to use the API token(oAuth or integration key), the "shard"(geolocation), the sender's email address, and the API related agreement ID to get the csv data and convert it to JSON.  It then returns this JSON which can be used by most of these workflow platforms.
 
+As some additional Info, I checked and this function falls under the "free tier" pricing so unless you use it more than 2 million times a month or your data from your forms is really really large, this should be free.
+
+The example response below is only about 1KB.  I changed the calculator to a value or 500KB for 1000 runs per month and it only came out to $1.40 per month so this should basically be a free or nearly free function as written here.
+
 #### The setup
 
 Open a GCP Account.  Create a new function and set it up something like this:
