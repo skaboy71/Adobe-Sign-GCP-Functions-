@@ -55,7 +55,7 @@ Example:
         "State": "NV",
         "Street": "123 South Main",
         "Zip": 86592.0,
-        "agreementId": "CBJCHBCAABAAzRCwcbksYXjJCfLwJZ2uf9omjsSuGbcP"
+        "agreementId": "CBJCHBCAABAA**************LwJZ2uf9omjsSuGbcP"
     },
     {
         "completed": "2019-07-05 17:02:09",
@@ -72,7 +72,7 @@ Example:
         "State": null,
         "Street": null,
         "Zip": null,
-        "agreementId": "CBJCHBCAABAAzRCwcbksYXjJCfLwJZ2uf9omjsSuGbcP"
+        "agreementId": "CBJCHBCAABAA**************LwJZ2uf9omjsSuGbcP"
     }
 ]
 ```
