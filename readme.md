@@ -6,7 +6,7 @@ Soooo since I'm a huge fan of python and open source, I wrote this GCP Function 
 
 As some additional Info, I checked and this function falls under the "free tier" pricing so unless you use it more than 2 million times a month or your data from your forms is really really large, this should be free.
 
-The example response below is only about 1KB.  I changed the calculator to a value or 500KB for 1000 runs per month and it only came out to $1.40 per month so this should basically be a free or nearly free function as written here.
+The example response below is only about 1KB.  I changed the calculator to a value of 500KB for 1000 runs per month and it only came out to $1.40 per month so this should basically be a free or nearly free function as written here.
 
 #### The setup
 
