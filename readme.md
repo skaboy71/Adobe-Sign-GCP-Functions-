@@ -10,7 +10,7 @@ Open a GCP Account.  Create a new function and set it up something like this:
 
 ![Setup Screen-Shot](https://www.evernote.com/shard/s517/sh/5fc307f9-b24e-4d8c-a494-f660c543862a/65be11a295780c42/res/140c36ab-0e6a-4544-beb1-9799a2675a44/skitch.png)
 
-Copy and paste the code over the top of the existing code in the main.py
+Copy and paste the code from [my .py file](https://github.com/skaboy71/Adobe-Sign-GCP-Functions-/blob/master/getFormDataCsvAs-JSON.py) over the top of the existing code in the main.py
 
 Set the "Function to execute" to "get_csv_json".
 
