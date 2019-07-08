@@ -34,3 +34,45 @@ Example:
 	"s_email": "senders-email@yourdomain.com"
 }
 ```
+
+The response will be nicely formatted JSON representing the "form data" from the agreement called.
+
+Example:
+```JSON
+[
+    {
+        "completed": "2019-07-05 17:01:37",
+        "email": "echosmusz1+signer1@gmail.com",
+        "role": "SIGNER",
+        "first": "Sam",
+        "last": "Signerone",
+        "title": "COO",
+        "company": null,
+        "AccountName": "Sam's Garage, n stuff",
+        "AccountNumber": 65469567.0,
+        "City": "Sonwhereville",
+        "Description": "This is some description with ' apostrophes and , commas.",
+        "State": "NV",
+        "Street": "123 South Main",
+        "Zip": 86592.0,
+        "agreementId": "CBJCHBCAABAAzRCwcbksYXjJCfLwJZ2uf9omjsSuGbcP"
+    },
+    {
+        "completed": "2019-07-05 17:02:09",
+        "email": "echosmusz2+signer2@gmail.com",
+        "role": "SIGNER",
+        "first": "Sam",
+        "last": "Signertwo",
+        "title": null,
+        "company": null,
+        "AccountName": null,
+        "AccountNumber": null,
+        "City": null,
+        "Description": null,
+        "State": null,
+        "Street": null,
+        "Zip": null,
+        "agreementId": "CBJCHBCAABAAzRCwcbksYXjJCfLwJZ2uf9omjsSuGbcP"
+    }
+]
+```
