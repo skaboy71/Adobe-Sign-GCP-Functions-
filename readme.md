@@ -1,4 +1,4 @@
-## Gets Adobe Sign related "form data" from agreement as JSON
+## GCP Function - Gets Adobe Sign related "form data" from agreement as JSON
 
 Adobe Sign returns "form data" as a csv formatted string.  This is really a problem for use in things like MS flow, zappier, ifttt, nintex and other workflow platforms. 
 
