@@ -30,6 +30,9 @@ def get_csv_json(request):
     it will be the V6 ID since these are different from the IDs returned in V5.  The agreement will be correct, but the 
     agreement ID will be the newer shorter agreement ID from V6.
     
+    If you want to use API V5 instead for consistency, please change the value for api_version below and you should then get
+    agreement IDs from V5.
+    
     This was initially done for use in Microsoft Flow, but it could be used anywhere that can ingest the form data as JSON.
     """
     request_json = request.get_json()
@@ -42,25 +45,34 @@ def get_csv_json(request):
         _token = request_json['token']
         _ag_id = request_json['ag_id']
         _s_email = request_json['s_email']
+	# Set V5 vs V6 API
+	api_version = "v6"
         # set base URL
-        base_url = 'https://api.' + _shard + '.echosign.com/api/rest/v6'
-        if _shard and _token and _ag_id and _s_email :
+        if _shard and _token and _ag_id and _s_email and api_version == "v6":
             base_url = 'https://api.' + _shard + '.echosign.com/api/rest/v6'
             fData_url = base_url + '/agreements/' + _ag_id + '/formData'
             headers = {
                 "Authorization": "Bearer " + _token,
                 "x-api-user": "email:" + _s_email,
                 "Content-Type": "application/json"
-                    }      
-            response1 = requests.get(fData_url, headers=headers)
-            csvData = sio(response1.text)
-            record = pd.read_csv(csvData)
-            # comment or uncomment the next 2 lines below to remove/replace "null" values.
-            null_fill = "not provided"
-            record = record.fillna(null_fill) # fills null values in the dataFrame with null_fill value
-            jsonData = record.to_json(orient='records')
-            jsonObject = json.loads(jsonData)
-            prettyJson = json.dumps(jsonObject)
+                    }  
+	elif _shard and _token and _ag_id and _s_email and api_version == "v5":
+		base_url = 'https://api.' + _shard + '.echosign.com/api/rest/v5'
+                fData_url = base_url + '/agreements/' + _ag_id + '/formData'
+                headers = {
+                "Access-Token": _token,
+                "x-api-user": "email:" + _s_email,
+                "Content-Type": "application/json"
+                    } 
+        response1 = requests.get(fData_url, headers=headers)
+        csvData = sio(response1.text)
+        record = pd.read_csv(csvData, dtype=str)
+        # comment or uncomment the next 2 lines below to remove/replace "null" values.
+        null_fill = "not provided"
+        record = record.fillna(null_fill)
+        jsonData = record.to_json(orient='records')
+        jsonObject = json.loads(jsonData)
+        prettyJson = json.dumps(jsonObject)
             
         return prettyJson
     else:
